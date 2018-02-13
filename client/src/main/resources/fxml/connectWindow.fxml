@@ -40,6 +40,7 @@
                 </VBox>
             <TextField fx:id="textFieldPlayerName" prefHeight="38.0" prefWidth="302.0" promptText="%playerName" GridPane.rowIndex="2" />
                 <Button maxWidth="120.0" mnemonicParsing="false" onAction="#onConnectPressed" prefHeight="38.0" text="%connect" GridPane.rowIndex="3" />
+                <Button maxWidth="120.0" mnemonicParsing="false" onAction="#onTranscriptPressed" prefHeight="38.0" text="%transcript" GridPane.rowIndex="4" />
                 <ImageView fx:id="imCannon" fitHeight="224.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <image>
                         <Image url="@../images/cannon.png" />

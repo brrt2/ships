@@ -73,6 +73,9 @@ public class Reporter {
       } else if (this.getCurrentDestination().equals(ReportingOption.SOCKET.toString())) {
         this.establishConnection();
         this.writeToSocket(message);
+      }else if (this.getCurrentDestination().equals(ReportingOption.DATABASE.toString())) {
+          this.establishConnection();
+          this.writeToDatabase(message);
       } else if (this.getCurrentDestination().equals(ReportingOption.LOGGER.toString())) {
         this.log(message);
       }
@@ -104,7 +107,17 @@ public class Reporter {
       logger.error(e.getMessage());
     }
   }
-  
+
+  private void writeToDatabase(final String message) {
+    PrintWriter printWriter;
+    try {
+      printWriter = new PrintWriter(new OutputStreamWriter(this.socket.getOutputStream(), "UTF-8"), true);
+      printWriter.println(message);
+    } catch (IOException e) {
+      logger.error(e.getMessage());
+    }
+  }
+
   private void establishConnection() {
     if (this.socket == null) {
       try {

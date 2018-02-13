@@ -6,8 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -24,6 +27,9 @@ import pl.korotkevics.ships.shared.infra.logging.core.SharedLogger;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
@@ -106,7 +112,27 @@ public class ConnectWindowController implements Initializable {
       clientThread.start();
     }
   }
-  
+
+  @FXML
+  private void onTranscriptPressed() {
+
+    TextInputDialog dialog = new TextInputDialog("firstGame");
+    dialog.setTitle("Transcript ");
+    dialog.setHeaderText("Transcript selection");
+    dialog.setContentText("Please enter the date of the game you would like to retrieve ");
+
+// Traditional way to get the response value.
+    Optional<String> result = dialog.showAndWait();
+    
+//    if (result.isPresent()){
+//      System.out.println("Your name: " + result.get());
+//    }
+
+// The Java 8 way to get the response value (with lambda expression).
+    result.ifPresent(name -> System.out.println("Your name: " + name));
+  }
+
+
   private void initializeClient() {
     final MainController mainController = (MainController) mainAnchorPane.getParent().getUserData();
     this.client = mainController.getClient();

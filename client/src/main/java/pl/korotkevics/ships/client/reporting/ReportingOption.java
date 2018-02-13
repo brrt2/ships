@@ -12,7 +12,8 @@ enum ReportingOption {
   
   FILE,
   SOCKET,
-  LOGGER;
+  LOGGER,
+  DATABASE;
   
   @Override
   public String toString() {
