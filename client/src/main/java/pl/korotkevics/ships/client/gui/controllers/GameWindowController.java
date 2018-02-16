@@ -36,7 +36,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 /**
- * Game window controller.
+ * Transcript window controller.
  *
  * @author Magdalena Aarsman
  * @since 2017-12-15

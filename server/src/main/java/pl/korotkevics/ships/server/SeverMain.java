@@ -1,5 +1,6 @@
 package pl.korotkevics.ships.server;
 
+import pl.korotkevics.database.dao.DAO;
 import pl.korotkevics.ships.server.communication.AppServer;
 import pl.korotkevics.ships.server.communication.CommunicationBus;
 import pl.korotkevics.ships.server.game.Game;
@@ -7,8 +8,6 @@ import pl.korotkevics.ships.server.game.gamestates.GameState;
 import pl.korotkevics.ships.server.game.gamestates.connection.WaitingForPlayersState;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.util.List;
 
 /**
  * Main class of server application.
@@ -17,6 +16,7 @@ import java.util.List;
  * @since 2017-12-09
  */
 public class SeverMain {
+
   private static final int SERVER_PORT = 8189;
   /**
    * Main server method. It creates communication bus and starts the game.
@@ -25,6 +25,7 @@ public class SeverMain {
    * @throws IOException can be thrown due to establishing a socket connection.
    */
   public static void main(String[] args) throws IOException {
+    launchPersistence();
     AppServer appServer = new AppServer(SERVER_PORT);
     int gameId = 1;
     /*
@@ -44,4 +45,11 @@ public class SeverMain {
       gameId++;
     }
   }
+
+  static void launchPersistence() {
+    DAO DAO = new DAO();
+    DAO.launchPersistence();
+  }
+
+
 }

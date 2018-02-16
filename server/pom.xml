@@ -73,13 +73,13 @@
     <name>Ships - SERVER</name>
 
     <description>
-        Ships game server.
+        Ships transcript server.
 
         An isolated module being mostly
         responsible for,
         - handling a network connection
         - handling message exchange
-        - handling heavy-weight game rules
+        - handling heavy-weight transcript rules
 
         The module packaging is defined independently.
     </description>

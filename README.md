@@ -23,7 +23,7 @@ We aren't really planning to deliver the extra feature: nukes. :(
 
 ## Project ships
 
-On-line battleships game. Guessing game for 2 players with simple GUI.
+On-line battleships transcript. Guessing transcript for 2 transcript with simple GUI.
 
 Quick facts:
 
@@ -133,12 +133,12 @@ Stable release branch is 'master'. See 'Code Quality & Team Setup'.
     - Code quality – non-OO code is tolerated in little amounts.
     - Project mantra followed (Git, Maven, test cases, etc.).
     - Java FX simple GUI
-    - Network game, client-server architecture
-    - Both players are human players
+    - Network transcript, client-server architecture
+    - Both transcript are human transcript
 
 ### Functional Specs
     
-    - One game only
+    - One transcript only
     - 10x10 board
     - Fleet consists of: 4-mast ship, 2 3-mast ships, 3 2-mast ships and 4 1-mast ships.
     - Winner has ships remaining while loser has none.
@@ -156,7 +156,7 @@ Stable release branch is 'master'. See 'Code Quality & Team Setup'.
     - Missing the ship - misses are marked on "seen" board. One can shoot twice in the same place if it is a miss.
     - Sinking the ship - if all masts of a ship are hit, ship sinks. Once the ship has sunk, mark all adjacent fields as "missed", since none of them can have a ship anyway.  
     - Sinking last ship, that is, winning.
-    - Nuke - thrice per game player chooses a 3x3 area and "nukes" it, that is, all ships within take damage as if shot. This is done in addition to normal shot. Only 4-mast ship has nukes, so once they are sunk, nukes cannot be used.
+    - Nuke - thrice per transcript player chooses a 3x3 area and "nukes" it, that is, all ships within take damage as if shot. This is done in addition to normal shot. Only 4-mast ship has nukes, so once they are sunk, nukes cannot be used.
 
 ### Code Quality & Team Setup
 

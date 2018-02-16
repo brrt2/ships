@@ -77,7 +77,7 @@
     <name>Ships - CLIENT</name>
 
     <description>
-        Ships game client.
+        Ships transcript client.
 
         An isolated module having a light-weight
         client logic and GUI (JavaFX).

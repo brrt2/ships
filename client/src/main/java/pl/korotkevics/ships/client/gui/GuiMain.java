@@ -18,8 +18,10 @@ import pl.korotkevics.ships.client.gui.controllers.MainController;
  * @since 2017-12-17
  */
 public class GuiMain extends Application {
+
   @Override
   public void start(Stage primaryStage) throws Exception {
+
     Thread.currentThread().setName("gui - thread");
     final String fxmlMainWindowPath = "/fxml/root.fxml";
     final String windowTitle = "Battleships";
@@ -39,10 +41,14 @@ public class GuiMain extends Application {
     primaryStage.setResizable(false);
     primaryStage.show();
 
+
     primaryStage.setOnHiding((WindowEvent event) -> {
       client.closeClient();
       Platform.exit();
     });
   }
+
+
+
 
 }

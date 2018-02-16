@@ -1,7 +1,7 @@
 package pl.korotkevics.ships.server.game.gamestates;
 
 /**
- * Game state representation contract.
+ * Transcript state representation contract.
  *
  * @author Piotr Czyż
  * @since 2018-01-02

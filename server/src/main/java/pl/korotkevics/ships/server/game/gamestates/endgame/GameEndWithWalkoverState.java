@@ -32,7 +32,7 @@ public class GameEndWithWalkoverState implements GameState {
    */
   @Override
   public GameState process() {
-    logger.info("Game ends - walk-over");
+    logger.info("Transcript ends - walk-over");
     communicationBus.stop();
     return this;
   }

@@ -10,14 +10,16 @@ import javax.persistence.TemporalType;
 import java.time.LocalDate;
 
 @Entity
-public class Game {
+public class Transcript {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long gameId;
+  private long playerId;
 
-  @Temporal(TemporalType.DATE)
-  private LocalDate date;
+  private String name;
 
 
+  public void setName(String name) {
+    this.name = name;
+  }
 }

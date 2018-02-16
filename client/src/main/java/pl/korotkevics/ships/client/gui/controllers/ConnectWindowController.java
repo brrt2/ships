@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -27,14 +25,8 @@ import pl.korotkevics.ships.shared.infra.logging.core.SharedLogger;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * Connect window controller.
@@ -79,6 +71,7 @@ public class ConnectWindowController implements Initializable {
 
   private ResourceBundle resourceBundle;
 
+
   @FXML
   private void onConnectPressed() {
     try {
@@ -87,6 +80,8 @@ public class ConnectWindowController implements Initializable {
       logger.error(e.getMessage());
       return;
     }
+
+
 
     final String serverAddress = textFieldServerAddress.getText();
     logger.info("server address: " + serverAddress);
@@ -101,7 +96,7 @@ public class ConnectWindowController implements Initializable {
     logger.info("server port: " + port);
 
     setPlayerName(textFieldPlayerName.getText());
-
+    
     showLoadingWheel();
     final boolean isConnected = client.connect(serverAddress, port, new Socket());
 
