@@ -5,9 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.time.LocalDate;
 
 @Entity
 public class Transcript {
@@ -16,10 +13,17 @@ public class Transcript {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long playerId;
 
-  private String name;
+  private String message;
 
 
-  public void setName(String name) {
-    this.name = name;
+  public Transcript() {
+  }
+
+  public Transcript(String message) {
+    this.message = message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 }

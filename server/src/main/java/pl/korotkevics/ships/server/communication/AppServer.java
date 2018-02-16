@@ -1,5 +1,6 @@
 package pl.korotkevics.ships.server.communication;
 
+import pl.korotkevics.database.dao.DAO;
 import pl.korotkevics.ships.shared.infra.logging.api.Target;
 import pl.korotkevics.ships.shared.infra.logging.core.SharedLogger;
 
@@ -17,6 +18,8 @@ import java.util.List;
  */
 public class AppServer {
 
+  private DAO dao;
+
   private final Target logger = new SharedLogger(AppServer.class);
 
   private final ServerSocket serverSocket;
@@ -24,6 +27,7 @@ public class AppServer {
   public AppServer(int port) throws IOException {
     logger.info("Server is up and waiting for clients..");
     this.serverSocket = new ServerSocket(port);
+    dao = new DAO();
   }
 
   /**
@@ -34,9 +38,12 @@ public class AppServer {
     logger.info("Waiting for the 1st client.. ");
     acceptClient(clients);
     logger.info("1st client connected... ");
+
+    dao.addTranscriptItem("First player connected");
     logger.info("waiting for the 2nd client..");
     acceptClient(clients);
     logger.info("2nd client connected... ");
+    dao.addTranscriptItem("Second player connected");
     logger.info("Clients are connected");
     return clients;
   }
